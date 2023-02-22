@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 const Budget = () => {
-    const { budget, dispatch, expenses } = useContext(AppContext);
+    const { budget, dispatch, expenses, currency } = useContext(AppContext);
     let initialValue = budget;
 
     const chgBudget = () => {
@@ -30,10 +30,10 @@ const Budget = () => {
     }
     return (
         <div className='alert alert-secondary'>
-            <span>Budget: £
-                <input type="number" 
+            <span>Budget: {currency}
+                <input type="number" defaultValue={initialValue}
                     id="bdgt" name="fname"  
-                    step="10" min="0" 
+                    step="10" min="0" size="0.1px"
                     onChange={(e) => chgBudget(e)}>          
                 </input>
             </span>
