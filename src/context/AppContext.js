@@ -5,8 +5,8 @@ export const AppReducer = (state, action) => {
     let budget = 0;
     switch (action.type) {
         case 'CHG_BUDGET':
-            state.budget = action.payload.cost;
-            alert("chchchchchchc");
+            state.budget = action.payload;
+            console.log("Budget changed");
             action.type = "DONE";
                 return {
                     ...state,
@@ -46,6 +46,7 @@ export const AppReducer = (state, action) => {
                     return currentExp
                 })
                 action.type = "DONE";
+                console.log("Reduce exp"+action.payload.name);
                 return {
                     ...state,
                     expenses: [...red_expenses],
